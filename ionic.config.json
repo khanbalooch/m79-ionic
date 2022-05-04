@@ -1,0 +1,7 @@
+{
+  "name": "m79-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
