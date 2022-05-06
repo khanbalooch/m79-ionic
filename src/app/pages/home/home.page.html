@@ -1,0 +1,22 @@
+
+<ion-header>
+  <ion-searchbar (ionInput)="onSearch($event.target.value)" debounce="100" animated placeholder="Search by Name" inputmode="text" mode="ios" showClearButton="focus">
+    <ion-badge  color="dark">{{filteredUsers?.length}}</ion-badge>
+  </ion-searchbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item button lines="none" detail="true" *ngFor="let user of filteredUsers" (click)="openDetails(user)">
+      <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+      <ion-avatar slot="start"><img [src]="user.picture.thumbnail"> </ion-avatar>
+      <ion-label>
+        <h2>{{user.name.first }} {{user.name.last}}</h2>
+        <p>{{user.email}}</p>
+      </ion-label>
+      <ion-icon slot="end" *ngIf="user.gender === 'male'" name="male-outline"></ion-icon>
+      <ion-icon slot="end" *ngIf="user.gender === 'female'" name="female-outline"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>
+

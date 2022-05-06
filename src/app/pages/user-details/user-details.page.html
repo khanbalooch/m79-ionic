@@ -1,0 +1,41 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title>User Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item class="profilePicture">
+      <img [src]="user?.picture.thumbnail">
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      <h1>
+        {{user?.name.title }}. {{user?.name.first }} {{user?.name.last}}
+      </h1>
+    </ion-label>
+    <ion-chip color="success" slot="end">
+      <ion-label >Online</ion-label>
+    </ion-chip>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon slot="start" name="mail"></ion-icon>
+    <ion-text>{{user?.email}}</ion-text>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon slot="start" name="call"></ion-icon>
+    <ion-text>{{user?.phone}}</ion-text>
+  </ion-item>
+
+</ion-content>
+
+<ion-footer>
+  <ion-button color="dark" expand="block">Lorem Ipsum</ion-button>
+</ion-footer>
