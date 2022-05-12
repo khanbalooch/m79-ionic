@@ -8,7 +8,7 @@ export class FilterPipe implements PipeTransform {
 
   transform(list: IUser[], searchTerm: string, fieldName: string): IUser[] {
 
-    if(list === null || list.length === 0  )  return []; // return empty array if no users/items found
+    if(list === null || list.length === 0 )  return []; // return empty array if no users/items found
 
     if(searchTerm === '') return list; // return the same if user did not searched
 

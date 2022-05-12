@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterContentChecked, ChangeDetectorRef, Component, ViewChild, ViewChildren } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 import { FilterPipe } from 'src/app/shared-components/pipes/filter.pipe';
@@ -10,33 +10,27 @@ import { UserService } from '../../services/user.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements AfterContentChecked {
 
-  randomUsers: IUser[];
-  filteredUsers: IUser[];
+  randomUsers: Observable<IUser[]>;
+  searchTerm: string = '';
+  @ViewChildren('someVar') filteredItems;
 
-  constructor(private user: UserService, private router: Router, private filter: FilterPipe) {}
+  constructor(private user: UserService, private router: Router, private changeDetector: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.loadRandomUserData();
   }
 
   loadRandomUserData(){
-    // this.randomUsers =
-    this.user.getList().subscribe(
-      data => {
-        this.randomUsers = data;
-        this.filteredUsers = data;
-      },
-      error => console.log(error)
-    );
+    this.randomUsers = this.user.getList();
   }
 
   openDetails(user: IUser){
     this.router.navigateByUrl('/userdetails', {state: user});
   }
 
-  onSearch(searchTerm){
-    this.filteredUsers = this.filter.transform(this.randomUsers, searchTerm, 'name');
+  ngAfterContentChecked(): void {
+    this.changeDetector.detectChanges();
   }
 }

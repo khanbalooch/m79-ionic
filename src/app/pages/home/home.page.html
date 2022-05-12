@@ -1,13 +1,13 @@
 
 <ion-header>
-  <ion-searchbar (ionInput)="onSearch($event.target.value)" debounce="100" animated placeholder="Search by Name" inputmode="text" mode="ios" showClearButton="focus">
-    <ion-badge  color="dark">{{filteredUsers?.length}}</ion-badge>
+  <ion-searchbar [(ngModel)]="searchTerm" debounce="100" animated placeholder="Search by Name" inputmode="text" mode="ios" showClearButton="focus">
+    <ion-badge  color="dark">{{ filteredItems?.length }}</ion-badge>
   </ion-searchbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-item button lines="none" detail="true" *ngFor="let user of filteredUsers" (click)="openDetails(user)">
+    <ion-item button lines="none" detail="true" *ngFor="let user of randomUsers | async | filter : searchTerm: 'name'" (click)="openDetails(user)" #someVar>
       <ion-ripple-effect type="unbounded"></ion-ripple-effect>
       <ion-avatar slot="start"><img [src]="user.picture.thumbnail"> </ion-avatar>
       <ion-label>

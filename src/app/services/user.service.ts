@@ -11,6 +11,7 @@ import { map} from 'rxjs/operators';
 export class UserService {
 
   private api = environment.randomApi;
+
   constructor(private http: HttpClient) { }
 
   getList(): Observable<IUser[]>{
