@@ -10,13 +10,13 @@
 <ion-content>
 
   <ion-item class="profilePicture">
-      <img [src]="user?.picture.thumbnail">
+      <img [src]="user?.pictureUrl">
   </ion-item>
 
   <ion-item>
     <ion-label>
       <h1>
-        {{user?.name.title }}. {{user?.name.first }} {{user?.name.last}}
+        {{user?.fullName }}
       </h1>
     </ion-label>
     <ion-chip color="success" slot="end">

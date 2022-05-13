@@ -1,8 +1,7 @@
 import { AfterContentChecked, ChangeDetectorRef, Component, ViewChild, ViewChildren } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
-import { FilterPipe } from 'src/app/shared-components/pipes/filter.pipe';
-import { IUser } from '../../models/User';
+import { User } from '../../models/User';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -12,7 +11,7 @@ import { UserService } from '../../services/user.service';
 })
 export class HomePage implements AfterContentChecked {
 
-  randomUsers: Observable<IUser[]>;
+  randomUsers: Observable<User[]>;
   searchTerm: string = '';
   @ViewChildren('someVar') filteredItems;
 
@@ -24,9 +23,10 @@ export class HomePage implements AfterContentChecked {
 
   loadRandomUserData(){
     this.randomUsers = this.user.getList();
+    console.log(this.randomUsers);
   }
 
-  openDetails(user: IUser){
+  openDetails(user: User){
     this.router.navigateByUrl('/userdetails', {state: user});
   }
 

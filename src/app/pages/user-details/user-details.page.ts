@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IUser } from 'src/app/models/User';
+import { User } from 'src/app/models/User';
 
 @Component({
   selector: 'app-user-details',
@@ -9,11 +9,11 @@ import { IUser } from 'src/app/models/User';
 })
 export class UserDetailsPage implements OnInit {
 
-  user: IUser;
+  user: User;
   constructor(private router: Router) { }
 
   ngOnInit() {
-    this.user = this.router.getCurrentNavigation().extras.state as IUser;
+    this.user = this.router.getCurrentNavigation().extras.state as User;
   }
 
 }

@@ -9,9 +9,9 @@
   <ion-list>
     <ion-item button lines="none" detail="true" *ngFor="let user of randomUsers | async | filter : searchTerm: 'name'" (click)="openDetails(user)" #someVar>
       <ion-ripple-effect type="unbounded"></ion-ripple-effect>
-      <ion-avatar slot="start"><img [src]="user.picture.thumbnail"> </ion-avatar>
+      <ion-avatar slot="start"><img [src]="user.pictureUrl"> </ion-avatar>
       <ion-label>
-        <h2>{{user.name.first }} {{user.name.last}}</h2>
+        <h2>{{user.fullName}}</h2>
         <p>{{user.email}}</p>
       </ion-label>
       <ion-icon slot="end" *ngIf="user.gender === 'male'" name="male-outline"></ion-icon>
