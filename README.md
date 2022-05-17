@@ -52,14 +52,14 @@ How it is described to the developer
 
 ```
 
-    it('Should Not filter on empty input, Input: Empty Array, Expected Output: Empty List', () =>{
+    it('Should Not filter on empty input, Input: Empty Array, Expected Output: Empty List', () => {
         expect(filter.transform([],'','name').length).toEqual(Number(0));
     });
 
 ```
 BreakDown
-function : Should Not filter on empty input
-input: Empty Array<User>
-output: Empty Array<User>
+ * function : Should Not filter on empty input
+ * input: Empty Array<User>
+ * output: Empty Array<User>
 
 ```
