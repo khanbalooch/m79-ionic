@@ -10,10 +10,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FilterPipe } from './shared-components/pipes/filter.pipe';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, FilterPipe],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
+  exports: [FilterPipe]
 })
 export class AppModule {}
