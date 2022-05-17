@@ -35,3 +35,31 @@ Skills: IONIC 6/ ANGULAR 13 / NODEJS 16/ JS (ES6)/ HTML / SCSS
 4. Now open http://localhost:8100/
 
 
+
+### Testing
+
+1. move to app root directory
+2. run npm install
+3. npm test
+
+### Test Driven Development
+
+Writing unit test cases in such a way that it explains/describes the functional requirements
+And the developer implements the unit/module as directed by the test suit/cases
+just checkout the test suit for [Pipe Filter, filter.pipe.spec.ts](https://github.com/khanbalooch/m79-ionic/blob/main/src/app/shared-components/pipes/filter.pipe.spec.ts)
+
+How it is described to the developer
+
+```
+
+    it('Should Not filter on empty input, Input: Empty Array, Expected Output: Empty List', () =>{
+        expect(filter.transform([],'','name').length).toEqual(Number(0));
+    });
+
+```
+BreakDown
+function : Should Not filter on empty input
+input: Empty Array<User>
+output: Empty Array<User>
+
+```
